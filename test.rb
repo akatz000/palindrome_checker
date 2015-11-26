@@ -1,13 +1,13 @@
 require 'benchmark'
 require_relative 'code.rb'
 
-first = 'aBa' * 100
-second = 'aBa' * 1000
-third = 'aBa' * 10000
-fourth = 'aBa' * 100000
+first = 'a' * 10000
+second = 'a' * 100000
+third = 'a' * 1000000
+fourth = 'a' * 10000000
 Benchmark.bm do |x|
-  x.report { palindrome?(first) }
-  x.report { palindrome?(second) }
-  x.report { palindrome?(third) }
-  x.report { palindrome?(fourth) }
+  x.report ("n = 10,000     :") { palindrome?(first) }
+  x.report ("n = 100,000    :") { palindrome?(second) }
+  x.report ("n = 1,000,000  :") { palindrome?(third) }
+  x.report ("n = 10,000,000 :") { palindrome?(fourth) }
 end
